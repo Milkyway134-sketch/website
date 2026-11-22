@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: ervo-portfolio
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: VINSTORE_URL
+        sync: false
+      - key: GAMES_URL
+        sync: false
+      - key: LYRICS_URL
+        sync: false
+
+  - type: web
+    name: ervo-vinstore
+    runtime: python
+    plan: free
+    rootDir: deploy/vinstore
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+
+  - type: web
+    name: ervo-bounce-ball
+    runtime: python
+    plan: free
+    rootDir: deploy/games
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+
+  - type: web
+    name: ervo-lyric-animation
+    runtime: python
+    plan: free
+    rootDir: deploy/lyrics
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animasi Lirik — Ervo</title>
+  <style>
+    :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;overflow:hidden;background:#05060d;color:#fff;font-family:Arial,sans-serif}canvas{position:fixed;inset:0;width:100%;height:100%}.topbar{position:fixed;z-index:2;top:18px;left:18px;display:flex;gap:10px}.topbar button{border:1px solid #ffffff38;border-radius:999px;padding:10px 15px;background:#171025cc;color:#fff;backdrop-filter:blur(12px);cursor:pointer}.topbar button:hover{background:#5a3985cc}.caption{position:absolute;z-index:2;left:50%;top:52%;width:min(820px,88%);transform:translate(-50%,-50%);text-align:center;font:700 clamp(28px,7vw,76px)/1.15 "Space Grotesk",sans-serif;letter-spacing:-2px;text-shadow:0 8px 28px #000,0 0 28px #9c7cff66;opacity:0;transition:opacity .55s ease,transform .55s ease}.caption.show{opacity:1;transform:translate(-50%,-50%) scale(1)}.caption.fade-out{opacity:0;transform:translate(-50%,-42%) scale(.96)}.title{position:absolute;z-index:2;left:24px;bottom:18px;color:#d8cbef;font-size:11px;letter-spacing:2px;text-transform:uppercase}.volume{position:absolute;z-index:2;right:24px;bottom:18px;color:#b6a9c8;font-size:11px}
+  </style>
+</head>
+<body>
+  <canvas id="scene" aria-label="Animasi lirik Merry Christmas I Miss You"></canvas>
+  <div class="topbar"><button id="play" type="button">Mulai Animasi</button><button id="replay" type="button" hidden>Putar Lagi</button></div>
+  <div class="caption" id="caption"></div>
+  <div class="title">Ervo • Lyric Animation</div>
+  <div class="volume">Merry Christmas • I Miss You</div>
+  <script src="app.js"></script>
+</body>
+</html>

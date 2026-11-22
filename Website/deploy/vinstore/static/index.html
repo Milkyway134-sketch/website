@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090817">
+<title>VinStore — Blox Fruits Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090817;--surface:#121027;--surface2:#191532;--line:#30284f;--purple:#a78bfa;--pink:#f0abfc;--gold:#fbd879;--text:#f7f5ff;--muted:#aaa5c3;--green:#20c879}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 78% -10%,#492a78 0,transparent 36%),radial-gradient(ellipse at -10% 38%,#202653 0,transparent 30%),var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}.container{width:min(1160px,92%);margin:auto}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #d7c4ff;outline-offset:3px}
+header{position:sticky;top:0;z-index:10;background:#090817d9;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff12}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-family:Orbitron,sans-serif;font-weight:800;letter-spacing:1px;font-size:1.2rem}.logo span{color:var(--gold)}.navlinks{display:flex;gap:27px;color:#c4bfd8;font-size:.9rem;font-weight:700}.navlinks a:hover{color:var(--gold)}
+.btn{border:0;border-radius:13px;padding:12px 18px;font:800 .9rem Manrope,sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn-primary{background:linear-gradient(120deg,#b58aff,#8057e8);color:white;box-shadow:0 8px 26px #9163e544}.btn-gold{background:linear-gradient(120deg,#ffe8a3,#eebc52);color:#211831}.btn-wa{background:linear-gradient(120deg,#25d982,#10a963);color:#061b12}.btn-outline{background:#ffffff08;border:1px solid var(--line);color:white}
+.hero{padding:83px 0 62px;display:grid;grid-template-columns:1.12fr .88fr;gap:40px;align-items:center}.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid #a78bfa66;background:#a78bfa16;color:#ddceff;border-radius:99px;padding:8px 13px;font-size:.78rem;font-weight:800;letter-spacing:.6px}.hero h1{font-family:Orbitron,sans-serif;font-size:clamp(2.3rem,5.7vw,4.5rem);line-height:1.13;letter-spacing:-2px;margin:22px 0 16px}.hero h1 .shine{background:linear-gradient(90deg,#ffe8a3,#f0abfc,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);line-height:1.8;max-width:590px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.visual{min-height:360px;border:1px solid #a78bfa55;border-radius:30px;background:linear-gradient(145deg,#2b1c51,#15112d 65%);position:relative;overflow:hidden;display:grid;place-items:center;box-shadow:0 30px 80px #0008}.visual:before,.visual:after{content:"";position:absolute;border:1px solid #ffffff20;border-radius:50%;width:260px;height:260px}.visual:after{width:350px;height:350px}.fruit{font-size:8rem;z-index:1;filter:drop-shadow(0 20px 25px #0009)}.float{position:absolute;z-index:2;padding:11px 14px;background:#17122cdd;border:1px solid #ffffff2b;border-radius:13px;font-weight:800;font-size:.8rem}.float.a{top:25px;left:22px}.float.b{right:20px;bottom:30px;color:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:55px}.stat{border:1px solid var(--line);border-radius:16px;padding:17px;background:#ffffff08;text-align:center}.stat b{display:block;color:var(--gold);font-size:1.12rem}.stat small{color:var(--muted)}
+section{padding:28px 0 55px}.heading{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:22px}.heading h2{font-family:Orbitron,sans-serif;font-size:1.65rem;margin:0}.heading p{color:var(--muted);margin:8px 0 0;font-size:.92rem}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 22px}.filter{border:1px solid var(--line);border-radius:99px;background:#ffffff08;color:#d5d0e6;padding:9px 15px;font:700 .82rem Manrope;cursor:pointer}.filter.active{background:var(--gold);border-color:var(--gold);color:#211831}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.product{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:19px;background:linear-gradient(155deg,#1b1735,#100e21);padding:20px;display:flex;flex-direction:column;min-height:265px;transition:.22s}.product:hover{transform:translateY(-5px);border-color:#a78bfa;box-shadow:0 18px 45px #0006}.product:before{content:"";position:absolute;right:-40px;top:-50px;width:120px;height:120px;border-radius:50%;background:#a78bfa12}.product-icon{width:49px;height:49px;border-radius:15px;background:#a78bfa1c;display:grid;place-items:center;font-size:1.55rem}.tag{margin:15px 0 6px;color:var(--pink);font-size:.68rem;letter-spacing:1.2px;font-weight:900}.product h3{margin:0 0 8px;font-size:1.05rem}.product p{margin:0;color:var(--muted);font-size:.86rem;line-height:1.65;min-height:55px}.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:17px}.price{font-size:.86rem;font-weight:900;color:var(--gold)}.product .btn{padding:10px 13px;font-size:.78rem}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.info{border:1px solid var(--line);border-radius:19px;background:#ffffff08;padding:22px}.info h3{margin:0 0 10px}.info p,.info li{color:var(--muted);line-height:1.7;font-size:.9rem}.info ul{padding-left:20px;margin-bottom:0}
+footer{border-top:1px solid #ffffff17;padding:26px 0;color:var(--muted);font-size:.82rem}.footer-inner{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:30;align-items:center;justify-content:center;padding:17px}.modal.show{display:flex}.dialog{width:min(470px,100%);background:#17132d;border:1px solid #514274;border-radius:22px;padding:23px;box-shadow:0 25px 80px #000b}.dialog h3{font-family:Orbitron,sans-serif;margin:0 0 8px;font-size:1.12rem}.dialog>p{color:var(--muted);font-size:.85rem}.field{margin:13px 0}.field label{display:block;color:#d6d0e9;font-size:.8rem;font-weight:700;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#0c0a19;color:white;border-radius:10px;padding:12px;font: .88rem Manrope}.field textarea{min-height:80px;resize:vertical}.dialog-actions{display:flex;gap:10px;margin-top:18px}.dialog-actions>*{flex:1}.helper{font-size:.74rem;color:var(--muted);line-height:1.5}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:20;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25d982,#10a963);color:#061b12;display:grid;place-items:center;font-size:1.55rem;box-shadow:0 12px 35px #10a96366;border:1px solid #72efaeaa;transition:transform .2s,filter .2s;-webkit-tap-highlight-color:transparent}.wa-float:hover{transform:translateY(-3px);filter:brightness(1.06)}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:55px}.visual{min-height:270px}.fruit{font-size:6rem}.products{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}}
+@media(max-width:540px){.products,.info-grid{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:13px 5px}.stat b{font-size:.94rem}.stat small{font-size:.68rem}.heading{display:block}.heading .btn{margin-top:14px}.hero h1{letter-spacing:-1px}.wa-float{right:14px;bottom:14px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.btn,.product,.wa-float{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="container nav"><a class="logo" href="#">VIN<span>STORE</span> ✦</a><nav class="navlinks"><a href="#layanan">Layanan</a><a href="#order">Cara Order</a><a href="#tentang">Tentang</a></nav><a class="btn btn-wa" href="#" id="navWhatsApp">☏ Chat Admin</a></div></header>
+<main class="container">
+<section class="hero">
+ <div><span class="pill">🍍 BLOX FRUITS • JOKI SERVICE</span><h1>YOUR JOURNEY.<br><span class="shine">OUR SERVICE.</span></h1><p>Selamat datang di VinStore. Pilih layanan joki Blox Fruits, isi detail targetmu, dan kirim pesanan langsung ke admin melalui WhatsApp.</p><div class="hero-actions"><a class="btn btn-primary" href="#layanan">⚡ Jelajahi Layanan</a><a class="btn btn-outline" href="#order">Cara Pemesanan ↗</a></div></div>
+ <div class="visual"><span class="float a">✦ VINSTORE • BOUNTY SERVICE</span><div class="fruit">🍍</div><span class="float b">LEVEL UP YOUR GAME ⚔</span></div>
+</section>
+<div class="stats"><div class="stat"><b>FAST RESPONSE</b><small>Chat admin langsung</small></div><div class="stat"><b>CUSTOM ORDER</b><small>Target sesuai kebutuhan</small></div><div class="stat"><b>VINSTORE</b><small>Blox Fruits service</small></div></div>
+<section id="layanan">
+ <div class="heading"><div><h2>JOKI SERVICES</h2><p>Pilih layanan yang ingin kamu pesan.</p></div><button class="btn btn-outline" id="quickChat">☏ Tanya Admin</button></div>
+ <div class="filters"><button class="filter active" data-filter="Semua">Semua</button><button class="filter" data-filter="Progress">Progress</button><button class="filter" data-filter="Farming">Farming</button><button class="filter" data-filter="Quest">Quest</button></div>
+ <div class="products" id="products">
+  <article class="product" data-category="Progress"><div class="product-icon">📈</div><div class="tag">PROGRESS</div><h3>Joki Level</h3><p>Bantu menaikkan level akun sampai target yang disepakati.</p><div class="product-bottom"><span class="price">Harga konsultasi</span><button class="btn btn-primary" data-order="Joki Level">Pesan ↗</button></div></article>
+  <article class="product" data-category="Farming"><div class="product-icon">💰</div><div class="tag">FARMING</div><h3>Farm Beli</h3><p>Mengumpulkan Beli sesuai jumlah target yang kamu inginkan.</p><div class="product-bottom"><span class="price">Harga konsultasi</span><button class="btn btn-primary" data-order="Farm Beli">Pesan ↗</button></div></article>
+  <article class="product" data-category="Farming"><div class="product-icon">🧩</div><div class="tag">FARMING</div><h3>Farm Fragment</h3><p>Bantu mengumpulkan Fragment untuk kebutuhan akun.</p><div class="product-bottom"><span class="price">Harga konsultasi</span><button class="btn btn-primary" data-order="Farm Fragment">Pesan ↗</button></div></article>
+  <article class="product" data-category="Progress"><div class="product-icon">⚔️</div><div class="tag">PROGRESS</div><h3>Mastery Senjata / Buah</h3><p>Menaikkan mastery senjata, fighting style, atau buah.</p><div class="product-bottom"><span class="price">Harga konsultasi</span><button class="btn btn-primary" data-order="Mastery Senjata / Buah">Pesan ↗</button></div></article>
+  <article class="product" data-category="Quest"><div class="product-icon">🌀</div><div class="tag">QUEST</div><h3>Joki Raid</h3><p>Bantuan menyelesaikan raid dan progres awakening.</p><div class="product-bottom"><span class="price">Harga konsultasi</span><button class="btn btn-primary" data-order="Joki Raid">Pesan ↗</button></div></article>
+  <article class="product" data-category="Quest"><div class="product-icon">👑</div><div class="tag">QUEST</div><h3>Quest Race V4</h3><p>Konsultasi progres quest Race V4 sesuai tahap akun.</p><div class="product-bottom"><span class="price">Harga konsultasi</span><button class="btn btn-primary" data-order="Quest Race V4">Pesan ↗</button></div></article>
+  <article class="product" data-category="Farming"><div class="product-icon">🐉</div><div class="tag">FARMING</div><h3>Farm Material</h3><p>Mengumpulkan material untuk kebutuhan upgrade.</p><div class="product-bottom"><span class="price">Harga konsultasi</span><button class="btn btn-primary" data-order="Farm Material">Pesan ↗</button></div></article>
+  <article class="product" data-category="Quest"><div class="product-icon">🏆</div><div class="tag">QUEST</div><h3>Boss / Item Drop</h3><p>Bantuan mengalahkan boss untuk mengejar item tertentu.</p><div class="product-bottom"><span class="price">Harga konsultasi</span><button class="btn btn-primary" data-order="Boss / Item Drop">Pesan ↗</button></div></article>
+  <article class="product" data-category="Progress"><div class="product-icon">🎯</div><div class="tag">CUSTOM</div><h3>Joki Custom</h3><p>Punya target lain? Sampaikan detail pesananmu ke admin.</p><div class="product-bottom"><span class="price">Sesuai request</span><button class="btn btn-primary" data-order="Joki Custom">Pesan ↗</button></div></article>
+ </div>
+</section>
+<section id="order"><div class="heading"><div><h2>HOW TO ORDER</h2><p>Proses pemesanan yang praktis.</p></div></div><div class="info-grid"><div class="info"><h3>🛒 Alur Pemesanan</h3><ul><li>Pilih layanan dari katalog.</li><li>Isi username dan detail target.</li><li>Klik kirim untuk membuka WhatsApp.</li><li>Admin mengonfirmasi harga dan estimasi.</li></ul></div><div class="info" id="tentang"><h3>🛡️ Keamanan Akun</h3><p>Jangan pernah mengirim password, kode OTP, atau kode pemulihan. Sepakati metode pengerjaan yang aman sebelum transaksi dimulai.</p><p>Harga pada katalog dapat dikonfirmasi langsung kepada admin VinStore.</p></div></div></section>
+</main>
+<footer><div class="container footer-inner"><span>© 2026 <b>VinStore</b> — Blox Fruits Joki Service</span><span>Fan-made service catalog • Tidak berafiliasi dengan Roblox</span></div></footer>
+<button class="wa-float" id="floatWhatsApp" type="button" aria-label="Chat admin VinStore melalui WhatsApp" title="Chat Admin">☏</button>
+<div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle"><div class="dialog"><h3 id="orderModalTitle">BUAT PESANAN</h3><p>Isi detail berikut. Pesanan akan disiapkan sebagai chat WhatsApp untuk admin.</p><div class="field"><label for="service">Layanan pilihan</label><input id="service" readonly></div><div class="field"><label for="username">Username Roblox (opsional)</label><input id="username" placeholder="Masukkan username" autocomplete="off"></div><div class="field"><label id="targetLabel" for="target">Detail / target pesanan</label><textarea id="target" placeholder="Contoh: level sekarang 700, target 1500" required></textarea></div><div class="dialog-actions"><button class="btn btn-outline" id="closeModal" type="button">Batal</button><button class="btn btn-wa" id="sendOrder" type="button">☏ Kirim ke WhatsApp</button></div><p class="helper" id="orderError" role="alert" aria-live="polite"></p><p class="helper">Demi keamanan, jangan masukkan password atau OTP akun Roblox.</p></div></div>
+<script>
+/* PENTING: ganti dengan nomor WhatsApp admin. Format internasional tanpa +, spasi, atau strip.
+   Contoh nomor Indonesia: 6281234567890 */
+const ADMIN_WA = "6281270387131";
+const waLink = (message="Halo VinStore, saya ingin bertanya tentang layanan joki Blox Fruits.") => {
+ if(ADMIN_WA.includes("X")){alert("Nomor WhatsApp admin belum diatur. Ganti ADMIN_WA di bagian script dengan nomor admin.");return;}
+ window.open("https://wa.me/"+ADMIN_WA+"?text="+encodeURIComponent(message),"_blank","noopener");
+};
+document.getElementById("navWhatsApp").addEventListener("click",e=>{e.preventDefault();waLink()});
+document.getElementById("quickChat").addEventListener("click",()=>waLink());
+document.getElementById("floatWhatsApp").addEventListener("click",()=>waLink());
+const modal=document.getElementById("orderModal");
+document.querySelectorAll("[data-order]").forEach(btn=>btn.addEventListener("click",()=>{
+ const service=btn.dataset.order;
+ document.getElementById("service").value=service;
+ document.getElementById("username").value="";
+ document.getElementById("target").value="";
+ document.getElementById("orderError").textContent="";
+ const target=document.getElementById("target");
+ if(service==="Joki Custom"){
+  document.getElementById("targetLabel").textContent="Permintaan joki custom";
+  target.placeholder="Contoh: bantu quest Cursed Dual Katana, target selesai hari ini";
+ }else{
+  document.getElementById("targetLabel").textContent="Detail / target pesanan";
+  target.placeholder="Contoh: level sekarang 700, target 1500";
+ }
+ modal.classList.add("show");
+ document.getElementById("target").focus();
+}));
+document.getElementById("closeModal").onclick=()=>modal.classList.remove("show");
+modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show")});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")modal.classList.remove("show")});
+document.getElementById("sendOrder").onclick=()=>{
+ const service=document.getElementById("service").value;
+ const username=document.getElementById("username").value.trim()||"-";
+ const target=document.getElementById("target").value.trim()||"-";
+ if(target==="-"||target.length<5){
+  document.getElementById("orderError").textContent="Isi detail atau target pesanan minimal 5 karakter.";
+  document.getElementById("target").focus();
+  return;
+ }
+ document.getElementById("orderError").textContent="";
+ waLink("Halo Admin VinStore! Saya ingin memesan layanan Blox Fruits.%0A".replace("%0A","\n")+
+ "Layanan: "+service+"\nUsername Roblox: "+username+"\nDetail target: "+target+"\n\nMohon info harga dan estimasi pengerjaan.");
+};
+document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
+ document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));btn.classList.add("active");
+ document.querySelectorAll(".product").forEach(card=>card.style.display=btn.dataset.filter==="Semua"||card.dataset.category===btn.dataset.filter?"flex":"none");
+}));
+</script>
+</body></html>

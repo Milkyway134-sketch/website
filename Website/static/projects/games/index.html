@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101827">
+    <title>Bola Memantul</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <h1>Bola Memantul</h1>
+          <p>Game pemecah balok 100 level</p>
+        </div>
+        <button id="fullscreen-button" class="secondary" type="button">Layar penuh</button>
+      </header>
+
+      <section id="menu-screen" class="panel">
+        <h2 id="menu-title">Bola Memantul</h2>
+        <p id="menu-description">Rekor tertinggi: <strong id="menu-high-score">0</strong></p>
+        <div id="menu-actions" class="actions"></div>
+      </section>
+
+      <section id="game-screen" class="game-screen" hidden>
+        <div class="hud">
+          <span id="score-label">Skor: 0</span>
+          <span id="high-score-label">Rekor: 0</span>
+          <span id="level-label">Level 1 / 100</span>
+          <span id="damage-label">Damage: 1</span>
+          <span id="wide-label" hidden></span>
+        </div>
+        <canvas id="game" width="800" height="600" aria-label="Area permainan Bola Memantul"></canvas>
+        <p class="controls">Gerakkan paddle dengan mouse, sentuhan, atau tombol ← →. Tekan Esc untuk menu.</p>
+      </section>
+      <p id="error-message" class="error" role="alert" hidden></p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
